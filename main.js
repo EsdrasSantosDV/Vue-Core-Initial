@@ -8,7 +8,8 @@ const app = Vue.createApp({
              imgSrc:"https://cdn.awsli.com.br/299/299243/arquivos/capa%20goku.jpeg",
              visible:true,
              totalContract:100,
-             products:[{id:1,fruit:'abacaxi'},{id:2,fruit:'geh'},{id:3,fruit:'asdas'}]
+             products:[{id:1,fruit:'abacaxi'},{id:2,fruit:'geh'},{id:3,fruit:'asdas'}],
+             counter:0
          }
      }
 })
