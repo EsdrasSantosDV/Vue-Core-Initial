@@ -5,7 +5,9 @@ const app = Vue.createApp({
          return{
              product:'SocDSADASDASDdDASDSAsaks',
              description:"Esdras aLTE",
-             imgSrc:"https://cdn.awsli.com.br/299/299243/arquivos/capa%20goku.jpeg"
+             imgSrc:"https://cdn.awsli.com.br/299/299243/arquivos/capa%20goku.jpeg",
+             visible:false,
+             totalContract:100
          }
      }
 })

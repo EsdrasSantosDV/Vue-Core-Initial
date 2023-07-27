@@ -20,13 +20,37 @@
                      ESSE BIND E E COMO SE TIVESSE FAZENDO UMA INTERPOLATION <div><img alt="item" src="{{itemImageUrl}}"></div> DO ANGULAR MEU CUMPADI
 
 -->
-               <img :src="imgSrc" :alt="description">
-                <img v-bind:src="imgSrc" :alt="description">
+<!--               <img :src="imgSrc" :alt="description">-->
+<!--                <img v-bind:src="imgSrc" :alt="description">-->
 
-<!--                PODEMOS DESABILITAR BOTÃO, COLCOAR EM REFERENCIAS HREF, IMAGES-->
-                <a :href="imgSrc">
-                    ESDRAS
-                </a>
+<!--&lt;!&ndash;                PODEMOS DESABILITAR BOTÃO, COLCOAR EM REFERENCIAS HREF, IMAGES&ndash;&gt;-->
+<!--                <a :href="imgSrc">-->
+<!--                    ESDRAS-->
+<!--                </a>-->
+
+<!--                VAMOS VER UMA DIRETIVA ESTRUTURAL AGORA SERIA O V-IF IGUAL O *ngIf -->
+                <div v-if="!visible">
+                    ESDRAS SANTOS O CARA
+                </div>
+<!--                TEMOS A DIRETIVA V-ELSE TBM-->
+                <div v-else>
+                    HE MAN
+                </div>
+
+<!--                PODEMOS SEGUIR ESSA DIRETIVA-->
+                <div v-if="totalContract >10 && totalContract <50">
+                    MAIOR QUE 10 E MENOR QUE 50
+                </div>
+                <div v-else-if="totalContract >=50 && totalContract<=70">
+                    MAIOR IGUAL A 50 E MENORIGUAL A 70
+                </div>
+                <div v-else>
+                    MAIOR QUE 70
+                </div>
+
+
+
+
 
             </div>
             <div class="product-info">
