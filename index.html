@@ -48,13 +48,26 @@
                     MAIOR QUE 70
                 </div>
 
+<!--                O V-SHOW FICA RENDERIZAOD, MAS COM DISPLAY NONE-->
+                <div v-show="visible">
+                    ESTOU NO HTML
+                </div>
+
+<!--                ANALOGO AO NG -FOR, VUE NÃO FAZ O TRACK BY DEFAULT TBM, TEM QUE USAR UMA KEY-->
+                <div v-for="product in products">
+                    {{product}}
+                </div>
+
+
+
+
 
 
 
 
             </div>
             <div class="product-info">
-                <h1>{{ product }}</h1>
+<!--                <h1>{{ product }}</h1>-->
             </div>
         </div>
     </div>
