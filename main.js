@@ -4,7 +4,8 @@ const app = Vue.createApp({
      data(){
          return{
              product:'SocDSADASDASDdDASDSAsaks',
-             description:"GATAO  DSA"
+             description:"Esdras aLTE",
+             imgSrc:"https://cdn.awsli.com.br/299/299243/arquivos/capa%20goku.jpeg"
          }
      }
 })

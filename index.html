@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
-  </head>
-  <body>
-    <div id="app">
-      <h1>{{ product  }}</h1>
-        <p>
-            {{description}}
-        </p>
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="nav-bar"></div>
+
+    <div class="product-display">
+        <div class="product-container">
+            <div class="product-image">
+<!--                AQUIU ESTAMOS VINCULANDO USANDO O :  OU v-bind que vincula essa propriedade la na view coMO SE FOSSE O BINDING DO ANGULAR
+
+                     ESSE BIND E E COMO SE TIVESSE FAZENDO UMA INTERPOLATION <div><img alt="item" src="{{itemImageUrl}}"></div> DO ANGULAR MEU CUMPADI
+
+-->
+               <img :src="imgSrc" :alt="description">
+                <img v-bind:src="imgSrc" :alt="description">
+
+<!--                PODEMOS DESABILITAR BOTÃO, COLCOAR EM REFERENCIAS HREF, IMAGES-->
+                <a :href="imgSrc">
+                    ESDRAS
+                </a>
+
+            </div>
+            <div class="product-info">
+                <h1>{{ product }}</h1>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Import Js -->
-    <script src="./main.js"></script>
+<!-- Import App -->
+<script src="./main.js"></script>
 
-    <script>
-        const mountedApp=app.mount('#app')
-    </script>
-  </body>
+<!-- Mount App -->
+<script>
+    const mountedApp = app.mount('#app')
+</script>
+</body>
 </html>
