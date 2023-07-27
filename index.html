@@ -54,10 +54,14 @@
                 </div>
 
 <!--                ANALOGO AO NG -FOR, VUE NÃO FAZ O TRACK BY DEFAULT TBM, TEM QUE USAR UMA KEY-->
-                <div v-for="product in products">
-                    {{product}}
+                <div v-for="(product,index) in products" :key="index">
+                    {{product.id}}
                 </div>
 
+<!--                PODEMOS FAZER O TRACK BY ACIMA, UTILZIANDO O INDEX PRA FAZER AS PERMUTAS, OU USANDO A KEY PPELO ID-->
+                <div v-for="product in products" :key="product.id">
+                    {{product.id}}
+                </div>
 
 
 
