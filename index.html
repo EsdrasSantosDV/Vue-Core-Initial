@@ -17,7 +17,11 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <img v-bind:src="image">
+            <img 
+            :class="{
+                 'out-of-stock-img':!inStock
+            }"
+            v-bind:src="image">
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
@@ -32,14 +36,25 @@
             <!-- TEMOS QUE USAR CAMEL CASE  NAS PROPRIEDADES -->
             <!-- TIPO E background-color -->
             <!-- PODEMOS USAR ISSO OU USAR COM '' ENTRE O ESTILO VIU-->
+           
+
+            <!-- O CLASS BINDING ADICIONA CLASSES -->
             <div 
               v-for="variant in variants" 
               :key="variant.id" 
             class="color-circle"
+            :class="{active:activeClass}"
             :style="{'background-color':variant.color}"
               @mouseover="updateImage(variant.image)" 
             >{{ variant.color }}</div>
-            <button class="button" @click="addToCart">Add to Cart</button>
+
+
+            <!-- tTEMOS TBM O NG CLASS ANALOGO PRO VUE -->
+            <button class="button"
+            :class="{disabledButton:!inStock}"
+            :disabled="!inStock"
+
+            @click="addToCart">Add to Cart</button>
           </div>
         </div>
       </div>
