@@ -1,104 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
-</head>
-<body>
-<div id="app">
-    <div class="nav-bar"></div>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
 
-    <div class="product-display">
+      <div class="cart">Cart({{ cart }})</div>
+      
+      <div class="product-display">
         <div class="product-container">
-            <div class="product-image">
-<!--                AQUIU ESTAMOS VINCULANDO USANDO O :  OU v-bind que vincula essa propriedade la na view coMO SE FOSSE O BINDING DO ANGULAR
+          <div class="product-image">
+            <img v-bind:src="image">
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
 
-                     ESSE BIND E E COMO SE TIVESSE FAZENDO UMA INTERPOLATION <div><img alt="item" src="{{itemImageUrl}}"></div> DO ANGULAR MEU CUMPADI
-
--->
-<!--               <img :src="imgSrc" :alt="description">-->
-<!--                <img v-bind:src="imgSrc" :alt="description">-->
-
-<!--&lt;!&ndash;                PODEMOS DESABILITAR BOTÃO, COLCOAR EM REFERENCIAS HREF, IMAGES&ndash;&gt;-->
-<!--                <a :href="imgSrc">-->
-<!--                    ESDRAS-->
-<!--                </a>-->
-
-<!--                VAMOS VER UMA DIRETIVA ESTRUTURAL AGORA SERIA O V-IF IGUAL O *ngIf -->
-                <div v-if="!visible">
-                    ESDRAS SANTOS O CARA
-                </div>
-<!--                TEMOS A DIRETIVA V-ELSE TBM-->
-                <div v-else>
-                    HE MAN
-                </div>
-
-<!--                PODEMOS SEGUIR ESSA DIRETIVA-->
-                <div v-if="totalContract >10 && totalContract <50">
-                    MAIOR QUE 10 E MENOR QUE 50
-                </div>
-                <div v-else-if="totalContract >=50 && totalContract<=70">
-                    MAIOR IGUAL A 50 E MENORIGUAL A 70
-                </div>
-                <div v-else>
-                    MAIOR QUE 70
-                </div>
-
-<!--                O V-SHOW FICA RENDERIZAOD, MAS COM DISPLAY NONE-->
-                <div v-show="visible">
-                    ESTOU NO HTML
-                </div>
-
-<!--                ANALOGO AO NG -FOR, VUE NÃO FAZ O TRACK BY DEFAULT TBM, TEM QUE USAR UMA KEY-->
-                <div v-for="(product,index) in products" :key="index">
-                    {{product.id}}
-                </div>
-
-<!--                PODEMOS FAZER O TRACK BY ACIMA, UTILZIANDO O INDEX PRA FAZER AS PERMUTAS, OU USANDO A KEY PPELO ID-->
-                <div v-for="product in products" :key="product.id">
-                    {{product.id}}
-                </div>
-
-
-<!--                PRA USAR O EVENT SO COLOCAR O @click ou usar o v-on-->
-                <button v-on:click="counter++">
-                    Aumente
-                </button>
-
-                <div>
-                    counter {{counter}}
-                </div>
-
-                <button @click="counter--">
-                    Subtraia
-                </button>
-
-
-
-
-
-
-
-
-
-            </div>
-            <div class="product-info">
-<!--                <h1>{{ product }}</h1>-->
-            </div>
+            <!-- PDOEMOS USAR O STYLE IGUAL O NG STYLE DO ANGULAR -->
+            <!--  -->
+            <div 
+              v-for="variant in variants" 
+              :key="variant.id" 
+            class="color-circle"
+            :style="{backgroundColor:variant.color}"
+              @mouseover="updateImage(variant.image)" 
+            >{{ variant.color }}</div>
+            <button class="button" @click="addToCart">Add to Cart</button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Import App -->
-<script src="./main.js"></script>
+    <!-- Import App -->
+    <script src="./main.js"></script>
 
-<!-- Mount App -->
-<script>
-    const mountedApp = app.mount('#app')
-</script>
-</body>
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
 </html>

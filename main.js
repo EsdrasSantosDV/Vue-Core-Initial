@@ -1,15 +1,24 @@
 const app = Vue.createApp({
-    //PODEMOS AQUI COLOCAR AS OPCOES DE CONFIGURAÇÃO PRO NOSSO VUE APP
-    //VUE E REATIVO
-     data(){
-         return{
-             product:'SocDSADASDASDdDASDSAsaks',
-             description:"Esdras aLTE",
-             imgSrc:"https://cdn.awsli.com.br/299/299243/arquivos/capa%20goku.jpeg",
-             visible:true,
-             totalContract:100,
-             products:[{id:1,fruit:'abacaxi'},{id:2,fruit:'geh'},{id:3,fruit:'asdas'}],
-             counter:0
-         }
-     }
+    data() {
+        return {
+            cart:0,
+            product: 'Socks',
+            brand: 'Vue Mastery',
+            image: './assets/images/socks_blue.jpg',
+            inStock: false,
+            details: ['50% cotton', '30% wool', '20% polyester'],
+            variants: [
+              { id: 2234, color: 'green', image: './assets/images/socks_green.jpg' },
+              { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg' },
+            ]
+        }
+    },
+    methods: {
+        addToCart() {
+            this.cart += 1
+        },
+        updateImage(variantImage) {
+            this.image = variantImage
+        }
+    }
 })
