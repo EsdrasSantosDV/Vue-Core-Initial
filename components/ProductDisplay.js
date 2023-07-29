@@ -43,6 +43,13 @@ app.component("product-display", {
             v-on:click="addToCart">
             Add to Cart
           </button>
+
+          <button
+          class="button" 
+          @click="removeCart"
+          >Remove Cart</button>
+
+
         </div>
       </div>
     </div>`,
@@ -63,11 +70,15 @@ app.component("product-display", {
         //SO PRECISAMOS REFERENCIAR O EVENTO DO PAI
 
         addToCart() {
-            this.$emit('add-card')
+            this.$emit('add-card',this.variants[this.selectedVariant].id)
         },
         updateVariant(index) {
             this.selectedVariant = index
+        },
+        removeCart(){
+            this.$emit('remove-card',this.variants[this.selectedVariant].id)
         }
+        
     },
     computed: {
         title() {

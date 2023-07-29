@@ -13,7 +13,7 @@
       <div class="nav-bar"></div>
 
       <div class="cart">Cart({{ cart }})</div>
-      <product-display :premium="premium" @add-card="updateCart"></product-display>
+      <product-display :premium="premium" @add-card="updateCart" @remove-card="removeCart"></product-display>
       </div>
     </div>
 
