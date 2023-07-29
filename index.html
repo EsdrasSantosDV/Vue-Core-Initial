@@ -10,11 +10,10 @@
   </head>
   <body>
     <div id="app">
-      <div class="nav-bar"></div>
+    
+      <product-form @submit-form="submit">
 
-      <div class="cart">Cart({{ cart }})</div>
-      <product-display :premium="premium" @add-card="updateCart" @remove-card="removeCart"></product-display>
-      </div>
+      </product-form>
     </div>
 
     <!-- Import App -->
@@ -23,7 +22,7 @@
     <!-- IMPORT COMPONENTS -->
     <script src="./components/ProductDisplay.js"></script>
     <script src="./components/ProductDetails.js"></script>
-
+    <script src="./components/ProductForm.js"></script>
 
 
     <!-- Mount App -->

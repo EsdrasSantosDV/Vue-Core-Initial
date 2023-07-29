@@ -76,6 +76,8 @@ app.component("product-display", {
             this.selectedVariant = index
         },
         removeCart(){
+            //COLOCAR POR COMENÇÃO - e não camel cases
+            //AQUI MANDAMOS O PAYLOAD
             this.$emit('remove-card',this.variants[this.selectedVariant].id)
         }
         

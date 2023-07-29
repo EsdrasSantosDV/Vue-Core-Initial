@@ -12,6 +12,10 @@ const app = Vue.createApp({
     removeCart(id)
     {
         this.cart.pop()
+    },
+    submit(value)
+    {
+        console.log(value);
     }
   },
 });
