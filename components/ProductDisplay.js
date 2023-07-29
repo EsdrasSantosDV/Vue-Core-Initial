@@ -59,8 +59,11 @@ app.component("product-display", {
         }
     },
     methods: {
+        //ESSE SERIA ANLOGO AOS OUTPUT PROPERTYS
+        //SO PRECISAMOS REFERENCIAR O EVENTO DO PAI
+
         addToCart() {
-            this.cart += 1
+            this.$emit('add-card')
         },
         updateVariant(index) {
             this.selectedVariant = index
