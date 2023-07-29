@@ -28,12 +28,15 @@
             </ul>
 
             <!-- PDOEMOS USAR O STYLE IGUAL O NG STYLE DO ANGULAR -->
-            <!--  -->
+            <!-- adicionamos um style object -->
+            <!-- TEMOS QUE USAR CAMEL CASE  NAS PROPRIEDADES -->
+            <!-- TIPO E background-color -->
+            <!-- PODEMOS USAR ISSO OU USAR COM '' ENTRE O ESTILO VIU-->
             <div 
               v-for="variant in variants" 
               :key="variant.id" 
             class="color-circle"
-            :style="{backgroundColor:variant.color}"
+            :style="{'background-color':variant.color}"
               @mouseover="updateImage(variant.image)" 
             >{{ variant.color }}</div>
             <button class="button" @click="addToCart">Add to Cart</button>
