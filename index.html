@@ -17,11 +17,7 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <img 
-            :class="{
-                 'out-of-stock-img':!inStock
-            }"
-            v-bind:src="image">
+            <img v-bind:src="image">
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
@@ -30,32 +26,24 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-
-            <!-- PDOEMOS USAR O STYLE IGUAL O NG STYLE DO ANGULAR -->
-            <!-- adicionamos um style object -->
-            <!-- TEMOS QUE USAR CAMEL CASE  NAS PROPRIEDADES -->
-            <!-- TIPO E background-color -->
-            <!-- PODEMOS USAR ISSO OU USAR COM '' ENTRE O ESTILO VIU-->
-           
-
-            <!-- O CLASS BINDING ADICIONA CLASSES -->
+            <!-- E O INDEX DE QUAL ESTA SENDO PASSADA O HOVER -->
             <div 
-              v-for="variant in variants" 
+              class="color-circle" 
+              v-for="(variant,index) in variants" 
               :key="variant.id" 
-            class="color-circle"
-            :class="{active:activeClass}"
-            :style="{'background-color':variant.color}"
-              @mouseover="updateImage(variant.image)" 
-            >{{ variant.color }}</div>
-
-
-            <!-- tTEMOS TBM O NG CLASS ANALOGO PRO VUE -->
-            <button class="button"
-            :class="{disabledButton:!inStock}"
-            :disabled="!inStock"
-
-            @click="addToCart">Add to Cart</button>
-          </div>
+              @mouseover="updateVariant(index)" 
+              :style="{ backgroundColor: variant.color }"></div>
+            <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" v-on:click="addToCart">Add to Cart</button>
+          
+            
+            <p>
+                {{title}}
+            </p>
+        
+            <p>
+                {{onSaleComputed}}
+            </p>
+            </div>
         </div>
       </div>
     </div>
